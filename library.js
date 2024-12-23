@@ -1,13 +1,24 @@
-function Book(title, author, pages, read){
+const myLibrary = [];
+
+function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
-        return this.title +" By "+ this.author + ", "+ this.pages + ", "+ this.read
-    }
 }
 
-const book1 = new Book("Dragon Ball", "Akira Toriyama", "18 pages per chapter", "read")
+function addBookToLibrary(title, author, pages, read) {
+    return myLibrary.push(new Book(title, author, pages, read))
+}
 
-console.log(book1.info())
+function displayBooks(){
+    
+}
+
+
+
+// addBookToLibrary("a", "b", "c", "d")
+// addBookToLibrary("t", "r", "e", "q")
+// addBookToLibrary("a", "a", "c", "d")
+
+// console.log(myLibrary);
