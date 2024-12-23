@@ -11,14 +11,51 @@ function addBookToLibrary(title, author, pages, read) {
     return myLibrary.push(new Book(title, author, pages, read))
 }
 
-function displayBooks(){
-    
+function displayBooks(livros) {
+    const container = document.getElementById("libraryTableContainer");
+    container.innerHTML = "";
+
+    const table = document.createElement("table");
+    table.classList.add("table_library")
+
+    const headerRow = document.createElement("tr")
+
+    const header = ["Title", "Author", "Pages", "Read"];
+    header.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th)
+    })
+
+    table.appendChild(headerRow);
+
+    livros.forEach(book => {
+        const row = document.createElement("tr");
+
+        const titleCell = document.createElement("td")
+        titleCell.textContent = book.title
+        row.appendChild(titleCell)
+
+        const authorCell = document.createElement('td');
+        authorCell.textContent = book.author;
+        row.appendChild(authorCell);
+
+        const pagesCell = document.createElement('td');
+        pagesCell.textContent = book.pages;
+        row.appendChild(pagesCell);
+
+        const readCell = document.createElement('td');
+        readCell.textContent = book.read ? 'Yes' : 'No';
+        row.appendChild(readCell);
+
+        table.appendChild(row);
+    })
+
+    container.appendChild(table)
 }
 
+addBookToLibrary("Merlin", "Ligma", 200, false)
+addBookToLibrary("Abacate", "Steve Jobs", 300, true)
+addBookToLibrary("Mercurio", "American", 400, true)
 
-
-// addBookToLibrary("a", "b", "c", "d")
-// addBookToLibrary("t", "r", "e", "q")
-// addBookToLibrary("a", "a", "c", "d")
-
-// console.log(myLibrary);
+displayBooks(myLibrary)

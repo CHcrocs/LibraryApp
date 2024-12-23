@@ -1,1 +1,24 @@
 @charset "UTF-8";
+
+#libraryTableContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#libraryTableContainer > table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 16px;
+}
+
+#libraryTableContainer th, td {
+    border: 1px solid black;
+}
+
+#libraryTableContainer tr:nth-child(even) {
+    background-color: rgb(253, 227, 194);
+}
+
+#libraryTableContainer tr:nth-child(odd) {
+    background-color: rgb(245, 201, 143);
+}
