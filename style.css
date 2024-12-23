@@ -11,6 +11,10 @@
     margin-top: 16px;
 }
 
+#libraryTableContainer th {
+    background-color:  rgb(240, 169, 78);
+}
+
 #libraryTableContainer th, td {
     border: 1px solid black;
 }
