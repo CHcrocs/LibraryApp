@@ -54,8 +54,38 @@ function displayBooks(livros) {
     container.appendChild(table)
 }
 
-addBookToLibrary("Merlin", "Ligma", 200, false)
+/* addBookToLibrary("Merlin", "Ligma", 200, false)
 addBookToLibrary("Abacate", "Steve Jobs", 300, true)
-addBookToLibrary("Mercurio", "American", 400, true)
+addBookToLibrary("Mercurio", "American", 400, true) */
+
+function displayForm() {
+    const container = document.getElementById("formContainer")
+    container.hidden = false
+}
+
+function hideForm(event) {
+    const container = document.getElementById("formContainer")
+    container.hidden = true
+    
+    event.preventDefault()
+}
+
+function addNewBook(event) {
+    event.preventDefault()
+
+    const container = document.getElementById("formContainer")
+
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = parseInt(document.getElementById('pages').value, 10);
+    const read = document.getElementById('read').checked;
+
+    addBookToLibrary(title, author, pages, read)
+
+    displayBooks(myLibrary)
+
+    container.hidden = true
+}
+
 
 displayBooks(myLibrary)

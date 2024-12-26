@@ -1,28 +1,76 @@
 @charset "UTF-8";
 
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    background-color: rgb(65, 61, 61);
+}
+
 #libraryTableContainer {
     display: flex;
     justify-content: center;
 }
 
-#libraryTableContainer > table {
+#libraryTableContainer>table {
     border-collapse: collapse;
     width: 50%;
     margin-top: 16px;
 }
 
 #libraryTableContainer th {
-    background-color:  rgb(240, 169, 78);
+    background-color: #f0a94e;
 }
 
-#libraryTableContainer th, td {
-    border: 1px solid black;
+#libraryTableContainer th,
+td {
+    border: 1px solid #000000;
 }
 
 #libraryTableContainer tr:nth-child(even) {
-    background-color: rgb(253, 227, 194);
+    background-color: #fde3c2;
 }
 
 #libraryTableContainer tr:nth-child(odd) {
-    background-color: rgb(245, 201, 143);
+    background-color: #f5c98f;
+}
+
+#addBookButton {
+    padding: 10px;
+    background-color: #e67e34;
+    border: 1px solid #e67e34;
+    color: white;
+}
+
+#addBookButton:hover {
+    background-color: #e66e18;
+    border: 1px solid #e66e18;
+}
+
+#actualForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#actualForm > input {
+    width: 250px;
+    height: 20px;
+}
+
+#actualForm > label {
+    color: white;
+    margin-top: 16px;
+}
+
+#formButtonsContainer {
+    margin-top: 16px;
+}
+
+#formButtonsContainer > button {
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
 }
