@@ -35,6 +35,17 @@ td {
     background-color: #f5c98f;
 }
 
+#libraryTableContainer button {
+    width: 100%;
+    border-radius: 0px;
+    background-color: #f36b6b;
+    padding: 5px;
+}
+
+#libraryTableContainer button:hover {
+    background-color: #f04c4c;
+}
+
 #addBookButton {
     padding: 10px;
     background-color: #e67e34;
@@ -55,12 +66,12 @@ td {
     margin-top: 20px;
 }
 
-#actualForm > input {
+#actualForm>input {
     width: 250px;
     height: 20px;
 }
 
-#actualForm > label {
+#actualForm>label {
     color: white;
     margin-top: 16px;
 }
@@ -69,8 +80,14 @@ td {
     margin-top: 16px;
 }
 
-#formButtonsContainer > button {
+#formButtonsContainer>button {
     padding: 10px;
     margin-right: 30px;
     margin-left: 30px;
+}
+
+.buttonAndTableContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

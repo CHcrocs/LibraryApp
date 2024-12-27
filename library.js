@@ -5,6 +5,9 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
+    this.readTheBook = function() {
+        this.read = !this.read
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -20,7 +23,7 @@ function displayBooks(livros) {
 
     const headerRow = document.createElement("tr")
 
-    const header = ["Title", "Author", "Pages", "Read"];
+    const header = ["Title", "Author", "Pages", "Read", "Action", "Remove"];
     header.forEach(headerText => {
         const th = document.createElement("th");
         th.textContent = headerText;
@@ -29,7 +32,7 @@ function displayBooks(livros) {
 
     table.appendChild(headerRow);
 
-    livros.forEach(book => {
+    livros.forEach((book, index) => {
         const row = document.createElement("tr");
 
         const titleCell = document.createElement("td")
@@ -48,15 +51,40 @@ function displayBooks(livros) {
         readCell.textContent = book.read ? 'Yes' : 'No';
         row.appendChild(readCell);
 
+        const actionCell = document.createElement("td")
+        const toggleReadButton = document.createElement('button');
+        toggleReadButton.textContent = 'Toggle Read';
+        toggleReadButton.setAttribute('data-index', index);
+        toggleReadButton.addEventListener('click', toggleReadStatus);
+        actionCell.appendChild(toggleReadButton);
+        row.appendChild(actionCell);
+
+
+        const removeCell = document.createElement("td")
+        const removeButton = document.createElement("button")
+        removeButton.textContent = 'X';
+        removeButton.setAttribute('data-index', index);
+        removeButton.addEventListener('click', removeBook);
+        removeCell.appendChild(removeButton);
+        row.appendChild(removeCell);
+
         table.appendChild(row);
     })
 
     container.appendChild(table)
 }
 
-/* addBookToLibrary("Merlin", "Ligma", 200, false)
-addBookToLibrary("Abacate", "Steve Jobs", 300, true)
-addBookToLibrary("Mercurio", "American", 400, true) */
+function removeBook(event) {
+    const bookIndex = event.target.getAttribute('data-index');
+    myLibrary.splice(bookIndex, 1); // Remove the book from the array
+    displayBooks(myLibrary); // Refresh the displayed books
+}
+
+function toggleReadStatus(event) {
+    const bookIndex = event.target.getAttribute('data-index');
+    myLibrary[bookIndex].readTheBook(); // Toggle the read status of the book
+    displayBooks(myLibrary); // Refresh the displayed books
+}
 
 function displayForm() {
     const container = document.getElementById("formContainer")
@@ -66,7 +94,7 @@ function displayForm() {
 function hideForm(event) {
     const container = document.getElementById("formContainer")
     container.hidden = true
-    
+
     event.preventDefault()
 }
 
